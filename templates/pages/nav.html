@@ -1,5 +1,6 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(40deg, #32136b, #17a2b8)">
+<nav class="navbar navbar-expand-lg navbar-dark"
+  style="background: linear-gradient(40deg, #32136b, #17a2b8); border-bottom: 0">
   <div class="container-fluid">
     <svg id="logo-35" width="50" height="39" viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z" class="ccompli1" fill="#007AFF"></path>
@@ -16,11 +17,11 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {% if the_user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">All Projects</a>
+          <a class="nav-link active" aria-current="page" href="">All Tasks</a>
         </li>
         {% endif %}
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">All Projects</a>
+          <a class="nav-link active" aria-current="page" href="">All Tasks</a>
         </li>
       </ul>
       {% if not the_user.is_authenticated %}

@@ -193,8 +193,8 @@ ACCOUNT_FORMS = {'signup': 'allauth.account.forms.SignupForm'}
 
 
 JAZZMIN_SETTINGS = {
-    "site_title": "ProjectPro Admin",
-    "site_header": "ProjectPro",
-    "copyright": "ProjectPro 2023",
-    "site_brand": "ProjectPro",
+    "site_title": "VehicleObs Admin",
+    "site_header": "VehicleObs",
+    "copyright": "VehicleObs 2024",
+    "site_brand": "VehicleObs",
 }

@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-  <title>{% block title %}ProjectPro{% endblock title %}</title>
+  <title>{% block title %} VehicleObs {% endblock title %}</title>
   <meta name="description" content="A roommate matching web app ">
   <meta name="author" content="">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo.svg' %}">
@@ -33,6 +33,10 @@
 
   {% block content %}
   {% endblock content %}
+
+  {% include "partials/footer.html" %}
+
+
   {% if messages %}
   <ul class="messages">
     {% for message in messages %}

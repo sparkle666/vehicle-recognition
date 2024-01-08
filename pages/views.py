@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.contrib import auth
 from django.urls import reverse
 from django.contrib import messages
+from accounts.models import VehicleImage
 
 
 class HomePageView(TemplateView):
@@ -23,6 +24,10 @@ def projects_list(request):
 
     return render(request, 'pages/project_list.html', context)
 
+
+def vehicle_image_list(request):
+    vehicle_images = VehicleImage.objects.all()
+    return render(request, 'pages/vehicle_image_list.html', {'vehicle_images': vehicle_images})
 
 def superuser_signup(request):
     if request.method == 'POST':

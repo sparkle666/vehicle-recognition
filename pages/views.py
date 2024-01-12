@@ -29,6 +29,14 @@ def vehicle_image_list(request):
     vehicle_images = VehicleImage.objects.all()
     return render(request, 'pages/vehicle_image_list.html', {'vehicle_images': vehicle_images})
 
+def send_sms(request):
+    # vehicle_images = VehicleImage.objects.all()
+    return render(request, 'pages/send_sms.html', {})
+
+def sms_success(request):
+    # vehicle_images = VehicleImage.objects.all()
+    return render(request, 'pages/sms_success.html', {})
+
 def superuser_signup(request):
     if request.method == 'POST':
         form = SuperuserCreationForm(request.POST)

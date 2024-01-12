@@ -1,0 +1,33 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Send SMS{% endblock title %}
+
+{% block content %}
+
+<div class="container my-4">
+    <h2>Send SMS</h2>
+    <form>
+        <div class="mb-3">
+            <label for="user" class="form-label">Select User</label>
+            <!-- Replace the options below with your actual user data -->
+            <select class="form-select" id="user" name="user">
+                <option value="1">User 1</option>
+                <option value="2">User 2</option>
+                <option value="3">User 3</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="phoneNumber" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter phone number">
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+        </div>
+        <a type="submit" class="btn btn-primary" href="{% url 'sms_success' %}">Send SMS</a>
+    </form>
+</div>
+
+{% endblock content %}

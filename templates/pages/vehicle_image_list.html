@@ -22,6 +22,9 @@
                     </p>
                     <p class="card-text"><strong>Created At:</strong> {{ vehicle_image.created_at }}</p>
                     <p class="card-text"><strong>Updated At:</strong> {{ vehicle_image.updated_at }}</p>
+                    <div class="">
+                        <p><a class="btn btn-warning" href="{% url 'send_sms' %}">Send SMS</a></p>
+                    </div>
                 </div>
             </div>
         </div>

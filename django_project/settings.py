@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "ninja",
+    'rest_framework',
 
     # "debug_toolbar",
     # Local

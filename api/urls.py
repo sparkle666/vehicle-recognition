@@ -1,15 +1,7 @@
-from django.urls import path
-from ninja import NinjaAPI
+from django.urls import path, include
 
-api = NinjaAPI()
-
-
-@api.get("/add")
-def add(request, a: int, b: int):
-    return {"result": a + b}
-
-
+from .views import ImageUploadView
 
 urlpatterns = [
-    path("v1/", api.urls)
+    path('upload/', ImageUploadView.as_view(), name='image-upload'),
 ]

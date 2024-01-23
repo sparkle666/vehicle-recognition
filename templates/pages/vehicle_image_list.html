@@ -13,7 +13,11 @@
             <div class="card">
                 <img src="{{ vehicle_image.image.url }}" class="card-img-top" alt="{{ vehicle_image.plate_number }}">
                 <div class="card-body">
-                    <h5 class="card-title">Plate Number: {{ vehicle_image.plate_number }}</h5>
+                    <h5 class="card-title">Plate Number: {{ vehicle_image.plate_number }}
+                        <a href="{% url 'edit_plate_number' vehicle_image.id %}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </h5>
                     <p class="card-text"><strong>Approved:</strong>{% if vehicle_image.approved %}
                         Yes
                         {% else %}
@@ -23,7 +27,10 @@
                     <p class="card-text"><strong>Created At:</strong> {{ vehicle_image.created_at }}</p>
                     <p class="card-text"><strong>Updated At:</strong> {{ vehicle_image.updated_at }}</p>
                     <div class="">
-                        <p><a class="btn btn-warning" href="{% url 'send_sms' %}">Send SMS</a></p>
+                        <p><a class="btn btn-warning" href="{% url 'send_sms' vehicle_image.id %}">Send SMS</a></p>
+                        <br>
+                        <p><a class="btn btn-warning" href="{% url 'generate_ocr' vehicle_image.id %}">Generate
+                                Number</a></p>
                     </div>
                 </div>
             </div>

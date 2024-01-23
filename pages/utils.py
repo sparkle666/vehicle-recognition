@@ -1,18 +1,38 @@
-import random
-import faker
-from pages.models import Hotel
+import requests
 
-fake = faker.Faker()
 
-def generate_fake_hotel_data(number_of_records):
-    for _ in range(number_of_records):
-        hotel = Hotel()
-        hotel.name = fake.company()
-        hotel.description = fake.paragraph()
-        hotel.rating = random.choice([i for i in range(6)])
-        hotel.price = round(random.uniform(50, 5000), 2)
-        hotel.save()
-        print(f"Generated {hotel.name} success!")
+def ocr_image(file_path):
+    # endpoint_url = "https://vehicleobs.onrender.com/api/v1/upload/"
+    endpoint_url = "https://jaided.ai/api/ocr"
 
-# Example usage: Generate 10 fake hotel records
-generate_fake_hotel_data(1)
+    headers = {"username": 'SparkleSix',
+               'apikey': 'IeBaoUbWiLJa3e0rbsDNjaTMGE0lJAsI'}
+    # files = {'file': open('your_file_path','rb')}
+    # result = requests.post(url, headers=headers, files=files).json()
+
+    try:
+        with open(file_path, 'rb') as file:
+            files = {'file': file}
+            print(f"All Files: {files}")
+            response = requests.post(
+                endpoint_url, headers=headers, files=files)
+
+            if response.ok:
+                print("Image uploaded successfully!")
+                data = response.json()
+
+                print(data)
+                print(data["result"][0]["text"])
+                return data["result"][0]["text"]
+
+            else:
+                print(
+                    f"Failed to upload image. Status code: {response.status_code}")
+                return None
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+# Example usage:
+# image_path = "carimage.jpg"
+# ocr_image(image_path)

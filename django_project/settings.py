@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "ninja",
     'rest_framework',
+    'corsheaders',
 
     # "debug_toolbar",
     # Local
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
+
     # "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -200,3 +203,5 @@ JAZZMIN_SETTINGS = {
     "copyright": "VehicleObs 2024",
     "site_brand": "VehicleObs",
 }
+
+CORS_ALLOW_ALL_ORIGINS = True

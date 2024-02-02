@@ -8,27 +8,24 @@
 
 <div class="container my-4">
     <h2>Send SMS</h2>
-    <form>
+    <h4>Vehicle License: {{ vehicle_image.plate_number }} </h4>
+    <form method="post">
+        {% csrf_token %}
+
         <div class="mb-3">
             <label for="user" class="form-label">Select User</label>
             <!-- Replace the options below with your actual user data -->
-            <select class="form-select" id="user" name="user">
-                {% for user in users %}
-                <option value="1"> {{ user.username }} </option>
-                {% endfor %}
-            </select>
+            {{ form.user }}
         </div>
         <div class="mb-3">
             <label for="phoneNumber" class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber">
+            {{ form.phoneNumber }}
         </div>
         <div class="mb-3">
             <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" name="message" rows="3">
-              Your License Plate is:  {{ vehicle_image.plate_number }}
-            </textarea>
+            {{ form.message }}
         </div>
-        <a type="submit" class="btn btn-primary" href="{% url 'sms_success' %}">Send SMS</a>
+        <button type="submit" class="btn btn-primary">Send SMS</button>
     </form>
 </div>
 

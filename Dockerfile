@@ -24,6 +24,7 @@ COPY . /code/
 EXPOSE 8000
 
 # Run migrations just once
+RUN python manage.py makemigrations
 RUN python manage.py migrate
 
 # Use gunicorn on port 8000

@@ -23,9 +23,9 @@ COPY . /code/
 # Expose port 8000
 EXPOSE 8000
 
-# Run migrations just once
-# RUN python manage.py makemigrations
-RUN python manage.py migrate
+# Entrypoint script
+COPY entrypoint.sh /code/entrypoint.sh
+RUN chmod +x /code/entrypoint.sh
 
 # Use gunicorn on port 8000
-CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "django_project.wsgi"]
+CMD ["/code/entrypoint.sh"]
